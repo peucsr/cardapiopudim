@@ -122,6 +122,11 @@ function atualizarCarrinho() {
   totalLi.className = "font-bold border-t border-gray-300 pt-2 mt-2 flex justify-between";
   totalLi.innerHTML = `<span>Total</span><span>R$ ${total.toFixed(2).replace(".", ",")}</span>`;
   carrinhoContainer.appendChild(totalLi);
+const aviso = document.getElementById("avisoMinimo");
+if (aviso) {
+  const totalUnidades = carrinho.reduce((sum, item) => sum + item.quantidade, 0);
+  aviso.classList.toggle("hidden", totalUnidades >= 20);
+}
 
   validarFormulario();
 }
