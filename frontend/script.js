@@ -22,8 +22,6 @@ const btnFinalizar = document.getElementById("finalizarPedido");
 const toggleInfo = document.getElementById("toggleInfo");
 const infoSection = document.getElementById("infoSection");
 const statusDiv = document.getElementById("status");
-const resumoCarrinhoMobile = document.getElementById("resumoCarrinhoMobile");
-const resumoTexto = document.getElementById("resumoTexto");
 const barraProgresso = document.getElementById("barraProgresso");
 
 
@@ -131,12 +129,7 @@ if (aviso) {
   const totalUnidades = carrinho.reduce((sum, item) => sum + item.quantidade, 0);
   aviso.classList.toggle("hidden", totalUnidades >= 20);
 }
-// Atualiza resumo fixo do carrinho para mobile
-if (resumoCarrinhoMobile && resumoTexto) {
-  const totalUnidades = carrinho.reduce((sum, item) => sum + item.quantidade, 0);
-  resumoTexto.textContent = `${totalUnidades} pudim${totalUnidades !== 1 ? "s" : ""} no carrinho`;
-  resumoCarrinhoMobile.classList.toggle("hidden", carrinho.length === 0);
-}
+
 
 // Atualiza barra de progresso
 const nomePreenchido = nomeClienteInput.value.trim() !== "";
